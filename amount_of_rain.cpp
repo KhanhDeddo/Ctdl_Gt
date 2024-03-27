@@ -49,7 +49,20 @@ void InputData(){
     short int year, month;
     string slt;
     cout<<"Nhap vao nam: ";cin>>year;
+    while(year < 0 or year >= 3000){
+        system("cls");
+        cout<<"Nhap du lieu luong mua cho thang trong nam.\n";
+        cout<<"Nam khong hop le. Vui long nhap lai!"<<endl;
+        cout<<"Nhap vao nam: ";cin>>year;
+    }
     cout<<"Nhap vao thang: ";cin>>month;
+    while(month < 1 or month > 12){
+        system("cls");
+        cout<<"Nhap du lieu luong mua cho thang trong nam.\n";
+        cout<<"Nhap vao nam: "<<year<<endl;
+        cout<<"Thang khong hop le. Vui long nhap lai!"<<endl;
+        cout<<"Nhap vao thang: ";cin>>month;
+    }
     if(Lst[year][month-1] != -1){
         cout<<"Luong mua thang "<<month<<" la: "<<Lst[year][month-1]<<". Ban muon update khong?\n";
         cout<<"(co-c hoac khong-k): ";cin>>slt;
@@ -64,6 +77,12 @@ void OutputData(){
     short int year, sumRain = 0, count = 0;
     string str = "Danh sach cac thang chua co du lieu: ";
     cout<<"Nhap vao nam: ";cin>>year;
+    while(year < 0 or year >= 3000){
+        system("cls");
+        cout<<"-----Thong ke luong mua-----"<<endl;
+        cout<<"Nam khong hop le. Vui long nhap lai!"<<endl;
+        cout<<"Nhap vao nam: ";cin>>year;
+    }
     for(int m = 0; m < 12; m++){
         if(Lst[year][m] != -1){
             count++;
@@ -95,8 +114,7 @@ int main(){
             do{
                 OutputData();
                 cout<<"Tiep tuc thong ke nam khac chon 1 hoac 0 de thoat: ";cin>>slt;
-            }
-            while(slt);
+            }while(slt);
         }
         else if(select == 3){
             system("cls");
